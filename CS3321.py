@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu May  6 15:59:35 2021
+##########################
+# CS3321 Shopping Project
+# By 
+# UHD 
+###########################
 
-@author: Bryan
-"""
 
 print("hello")

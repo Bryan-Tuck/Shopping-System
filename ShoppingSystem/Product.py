@@ -5,48 +5,44 @@ Created on Thu May  6 16:39:43 2021
 @author: Bryan
 """
 class product:
-    def __init__(self, productName, productBrand, productID, productPrice, productCode, productCountry):
-        self.name = productName
-        self.brand = productBrand
-        self.ID = productID
-        self.price = productPrice
-        self.code = productCode
-        self.country = productCountry
+    
+    #Constructor
+    def __init__(self, product_name, product_brand, product_id, product_price, product_country):
+        self.product_name = product_name
+        self.product_brand = product_brand
+        self.product_id = product_id
+        self.product_price = product_price
+        self.product_country = product_country
  
 
+    ##Setters and Getters begin
+    def set_product_name(self, product_name):
+        self.product_name  = product_name
+        
+    def set_product_Brand (self, product_brand):
+        self.product_brand = product_brand
+
+    def set_product_id (self, product_id):
+        self.product_id = product_id   
+
+    def set_product_Price (self, product_price):
+        self.product_price = product_price
  
-    def setproductName(self, productName):
-        self.productName  = productName
+    def set_product_country (self, product_country):
+        self.product_country = product_country
         
-    def getproductName(self):
-        return self.productName
-    
-    def setproductBrand (self, productBrand):
-        self.productBrand = productBrand
+    def get_product_name(self):
+        return self.product_name    
         
-    def getproductBrand (self):
-        return self.productBrand
-    
-    def setproductID (self, productID):
-        self.productID = productID
+    def get_product_brand (self):
+        return self.product_brand   
         
-    def getproductID (self):
-        return self.productID
-    
-    def setproductPrice (self, productPrice):
-        self.productPrice = productPrice
+    def get_product_id (self):
+        return self.product_id   
         
-    def getproductPrice(self):
-        return self.productPrice
-    
-    def setproductCode (self, productCode):
-        self.productCode = productCode
+    def get_product_price(self):
+        return self.product_price       
         
-    def get productCode (self):
-        return self.productCode
-    
-    def setproductCountry (self, productCountry):
-        self.productCountry = productCountry
-        
-    def getproductCountry (self):
-        return self.productCountry
+    def get_product_country (self):
+        return self.produt_country
+    ##Setters and Getters end

@@ -8,6 +8,7 @@ Created on Thu May  6 16:40:08 2021
 
 class Customer:
     
+    #Constructor
     def __init__(self, name, street, city, zip_code):
         self.__name = name
         
@@ -15,6 +16,7 @@ class Customer:
         self.__city = city
         self.__zip_code = zip_code
         
+    ##Setters and Getters Begin    
     def set_name(self, name):
         self.__name = name        
         
@@ -38,7 +40,7 @@ class Customer:
     
     def get_zip_code(self):
         return self.__zip_code     
-            
+    ##Setters and Getters End        
     
 
 

@@ -10,14 +10,14 @@ import Customer
 def main():
     
     
-    
-    nam = input("Enter Name:")
-    stre = input("Enter Street")
-    cit = input("Enter City")
-    zipc = input("Enter Zip Code")
+    ##Testing Customer class with inputs
+    nam = input("Enter Name: ")
+    stre = input("Enter Street: ")
+    cit = input("Enter City: ")
+    zipc = input("Enter Zip Code: ")
     
     custo = Customer.Customer(nam,stre,cit,zipc)
-    
+    ##Displaying data entered
     print("Data entered: ")
     print("Customer name: ", custo.get_name())
     print("Street name: ", custo.get_street())

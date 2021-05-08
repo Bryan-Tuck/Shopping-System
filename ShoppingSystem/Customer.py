@@ -6,45 +6,41 @@ Created on Thu May  6 16:40:08 2021
 """
 
 
-
 class Customer:
     
-    cusCount = 0
-    
-    def __init__(self, first_name, last_name, street, city, zip_address):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.street = street
-        self.city = city
-        self.zip_address = zip_address        
-        self.customer_data = []
-     
-       
-    def fullname(self):
-        return "{} {}".format(self.first_name, self.last_name)
-    
-    def street(self, street):
-        return street
-    
-    def city(self, city):
-        return city
-    
-    def zip_address(self, zip_address):
-        return zip_address
+    def __init__(self, name, street, city, zip_code):
+        self.__name = name
         
-    def add_customer(self, Customer):
-        self.customer_data.append(Customer)
+        self.__street = street
+        self.__city = city
+        self.__zip_code = zip_code
         
-    def display_Customer(self):
-        print ("Name:", self.fullname(), "Street:", self.street,
-        "City:", self.city, "Zip Address:", self.zip_address)
-                
+    def set_name(self, name):
+        self.__name = name        
         
-                                 
-           
-customer_1 = Customer('Steve', 'Jobs', '10912 Golden Drive', 'Houston', 77044)
+    def set_street(self, street):
+        self.__street = street
+        
+    def set_city(self, city):
+        self.__city = city
+    
+    def set_zip_code(self, zip_code):
+        self.__zip_code = zip_code
+        
+    def get_name(self):
+        return self.__name     
+        
+    def get_street(self):
+        return self.__street 
+        
+    def get_city(self):
+        return self.__city 
+    
+    def get_zip_code(self):
+        return self.__zip_code     
+            
+    
 
-customer_1.display_Customer()
 
 
 

@@ -18,8 +18,8 @@ FILENAME = "Customers.dat"
 
 def main():
     
-    # Load the existing contact dictionary and
-    # assign it to mycontacts.
+    # Load the existing customer dictionary and
+    # assign it to mycustomers.
     mycustomers = load_customers()
 
     # Initialize a variable for the user's choice.
@@ -53,7 +53,7 @@ def load_customers():
         # Unpickle the dictionary.
         customer_dct = pickle.load(input_file)
             
-        # Close the phone_inventory.dat file.
+        # Close the Customers.dat file.
         input_file.close()
     except IOError:
         # Could not open the file, so create
@@ -105,7 +105,7 @@ def add(mycustomers):
     zip_code = input('Zip Code: ')
     
     # Create a Customer object named entry.
-    entry = Customer.Customer(name, street, city, zip_code)
+    entry = Customer.customer(name, street, city, zip_code)
 
     # If the name does not exist in the dictionary,
     # add it as a key with the entry object as the
@@ -133,7 +133,7 @@ def change(mycustomers):
         zip_code = input('Enter the new zip code: ')
 
         # Create a contact object named entry.
-        entry = Customer.Customer(name, street, city, zip_code)
+        entry = Customer.customer(name, street, city, zip_code)
 
         # Update the entry.
         mycustomers[name] = entry

@@ -170,8 +170,8 @@ class Customer:
 
 #         # If the name is found, delete the entry.
 #         if name in mycustomers:
-#              del mycustomers[name]
-#              print('Entry deleted.')
+#               del mycustomers[name]
+#               print('Entry deleted.')
 #         else:
 #             print('That name is not found.')
 
@@ -185,7 +185,8 @@ class Customer:
 #         pickle.dump(mycustomers, output_file)
 
 #         # Close the file.
-#         output_file.close()        
+#         output_file.close()    
+
                
                
                

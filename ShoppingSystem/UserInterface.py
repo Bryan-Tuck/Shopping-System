@@ -5,15 +5,22 @@ Created on Thu May  6 21:29:51 2021
 @author: Bryan
 """
 import Customer
+import Department
+import Product
+import Transaction
 import pickle
 
 LOOK_UP = 1
 ADD = 2
 CHANGE = 3
 DELETE = 4
-QUIT = 5
+QUIT = 17
 
-FILENAME = "Customers.dat"
+FILECUSTOMER = "Customers.dat"
+FILEDEPARTMENT = "Departments.dat"
+FILEPRODUCT = "Products.dat"
+FILETRANSACTION = "Transactions.dat"
+
 
 
 def main():
@@ -21,6 +28,9 @@ def main():
     # Load the existing customer dictionary and
     # assign it to mycustomers.
     mycustomers = load_customers()
+    mydepartments = load_departments()
+    myproducts = load_products()
+    mytransactions = load_transactions()
 
     # Initialize a variable for the user's choice.
     choice = 0
@@ -42,13 +52,16 @@ def main():
             delete(mycustomers)
 
     # Save the mycontacts dictionary to a file.
-    save_customers(mycustomers)    
+    save_customers(mycustomers)
+    save_departments(mydepartments)
+    save_products(myproducts)
+    save_transactions(mytransactions)
     
 def load_customers():
         
     try:
         # Open the Customers.dat file.
-        input_file = open(FILENAME, 'rb')
+        input_file = open(FILECUSTOMER, 'rb')
             
         # Unpickle the dictionary.
         customer_dct = pickle.load(input_file)
@@ -63,8 +76,69 @@ def load_customers():
         # Return the dictionary.
     return customer_dct
 
+    
+def load_departments():
+        
+    try:
+        # Open the departments.dat file.
+        input_file = open(FILEDEPARTMENT, 'dp')
+            
+        # Unpickle the dictionary.
+        department_dct = pickle.load(input_file)
+            
+        # Close the departments.dat file.
+        input_file.close()
+    except IOError:
+        # Could not open the file, so create
+        # an empty dictionary.
+        department_dct = {}
+                
+        # Return the dictionary.
+    return department_dct
+
+
+def load_products():
+        
+    try:
+        # Open the products.dat file.
+        input_file = open(FILEPRODUCT, 'qr')
+            
+        # Unpickle the dictionary.
+        product_dct = pickle.load(input_file)
+            
+        # Close the products.dat file.
+        input_file.close()
+    except IOError:
+        # Could not open the file, so create
+        # an empty dictionary.
+        product_dct = {}
+                
+        # Return the dictionary.
+    return product_dct
+
+
+def load_transactions():
+        
+    try:
+        # Open the transactions.dat file.
+        input_file = open(FILETRANSACTION, 'ti')
+            
+        # Unpickle the dictionary.
+        transaction_dct = pickle.load(input_file)
+            
+        # Close the transactions.dat file.
+        input_file.close()
+    except IOError:
+        # Could not open the file, so create
+        # an empty dictionary.
+        transaction_dct = {}
+                
+        # Return the dictionary.
+    return transaction_dct
+
     # The get_menu_choice function displays the menu
     # and gets a validated choice from the user.
+    
 def get_menu_choice():
     print()
     print('Menu')
@@ -73,7 +147,19 @@ def get_menu_choice():
     print('2. Add a new customer')
     print('3. Change an existing customer')
     print('4. Delete a customer')
-    print('5. Quit the program')
+    print('5. Look up a department')
+    print('6. Add a new department')
+    print('7. Change an existing department')
+    print('8. Delete a department')    
+    print('9. Look up a product')
+    print('10. Add a new product')
+    print('11. Change an existing product')
+    print('12. Delete a product')
+    print('13. Look up a transaction')
+    print('14. Add a new transaction')
+    print('15. Change an existing transaction')
+    print('16. Delete a transaction')
+    print('17. Quit the program')
     print()
 
     # Get the user's choice.
@@ -141,7 +227,7 @@ def change(mycustomers):
     else:
         print('That name is not found.')
 
-# The delete function deletes an entry from the
+# The delete functions deletes an entry from the
 # specified dictionary.
 def delete(mycustomers):
     # Get a name to look up.
@@ -153,18 +239,59 @@ def delete(mycustomers):
         print('Entry deleted.')
     else:
         print('That name is not found.')
+        
+def delete_department(mydepartments):
+    # Get a department to look up.
+    department_name = input('Enter a name: ')
 
-# The save_customers funtion pickles the specified
+    # If the name is found, delete the entry.
+    if department_name in mydepartments:
+        del mydepartments[department_name]
+        print('Entry deleted.')
+    else:
+        print('That name is not found.')
+
+# The save functions pickles the specified
 # object and saves it to the contacts file.
 def save_customers(mycustomers):
     # Open the file for writing.
-    output_file = open(FILENAME, 'wb')
+    output_file = open(FILECUSTOMER, 'wb')
 
     # Pickle the dictionary and save it.
     pickle.dump(mycustomers, output_file)
 
     # Close the file.
     output_file.close()   
+    
+def save_departments(mydepartments):
+    # Open the file for writing.
+    output_file = open(FILEDEPARTMENT, 'wb')
+
+    # Pickle the dictionary and save it.
+    pickle.dump(mydepartments, output_file)
+
+    # Close the file.
+    output_file.close() 
+    
+def save_products(myproducts):
+    # Open the file for writing.
+    output_file = open(FILEPRODUCT, 'wb')
+
+    # Pickle the dictionary and save it.
+    pickle.dump(myproducts, output_file)
+
+    # Close the file.
+    output_file.close() 
+    
+def save_transactions(mytransactions):
+    # Open the file for writing.
+    output_file = open(FILETRANSACTION, 'wb')
+
+    # Pickle the dictionary and save it.
+    pickle.dump(mytransactions, output_file)
+
+    # Close the file.
+    output_file.close() 
 
 main()     
                

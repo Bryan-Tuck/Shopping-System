@@ -39,10 +39,11 @@ class product:
         
     def get_product_id (self):
         return self.product_id   
-        
+    
+    #Tax is automatically includedat 0.6
     def get_product_price(self):
-        return self.product_price       
+        return self.product_price        
         
     def get_product_country (self):
-        return self.produt_country
+        return self.product_country
     ##Setters and Getters end

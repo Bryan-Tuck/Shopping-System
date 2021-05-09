@@ -8,11 +8,11 @@ Created on Thu May  6 16:39:59 2021
 class Transaction:
     
     #Constructor
-    def __init__(self, total_price, payment_info, customer, cc_number, cc_expdate):
+    def __init__(self, transaction_name, total_price, payment_info, cc_number, cc_expdate):
  
         self.__total_price = total_price
         self.__payment_info = payment_info
-        self.__customer = customer
+        self.__customer = transaction_name
         self.__cc_number = cc_number
         self.__cc_expdate = cc_expdate
  
@@ -23,8 +23,8 @@ class Transaction:
     def set_payment_info (self, payment_info):
         self.__paymentinfo = payment_info
         
-    def set_customer (self, customer):
-        self.__customer = customer
+    def set_customer (self, transaction_name):
+        self.__transaction_name = transaction_name
 
     def set_cc_number (self, cc_number):
         self.__cc_number = cc_number 
@@ -38,8 +38,8 @@ class Transaction:
     def get_payment_info (self):
         return self.payment_info
            
-    def get_customer (self):
-        return self.__customer
+    def get_transaction_name (self):
+        return self.__transaction_name
             
     def get_cc_number (self):
         return self.__ccnumber    

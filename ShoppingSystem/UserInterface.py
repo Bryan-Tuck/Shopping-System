@@ -45,46 +45,46 @@ def main():
     mytransactions = load_transactions()
 
     # Initialize a variable for the user's choice.
-    choice = 0
+    choose = 0
 
     # Process menu selections until the user
     # wants to quit the program.
-    while choice != QUIT:
+    while choose != QUIT:
         # Get the user's menu choice.
-        choice = get_menu_choice()
+        choose = get_menu_choice()
 
         # Process the choice.
-        if choice == LOOK_UP_CUSTOMER:
+        if choose == LOOK_UP_CUSTOMER:
             look_up_customer(mycustomers)
-        elif choice == ADD_CUSTOMER:
+        elif choose == ADD_CUSTOMER:
             add_customer(mycustomers)
-        elif choice == CHANGE_CUSTOMER:
+        elif choose == CHANGE_CUSTOMER:
             change_customer(mycustomers)
-        elif choice == DELETE_CUSTOMER:
+        elif choose == DELETE_CUSTOMER:
             delete_customer(mycustomers)
-        elif choice == LOOK_UP_DEPARTMENT(mydepartments):
+        elif choose == LOOK_UP_DEPARTMENT(mydepartments):
             look_up_department(mydepartments)
-        elif choice == ADD_DEPARTMENT(mydepartments):
+        elif choose == ADD_DEPARTMENT(mydepartments):
             add_department(mydepartments)
-        elif choice == CHANGE_DEPARTMENT(mydepartments):
+        elif choose == CHANGE_DEPARTMENT(mydepartments):
             change_department(mydepartments)
-        elif choice == DELETE_DEPARTMENT(mydepartments):
+        elif choose == DELETE_DEPARTMENT(mydepartments):
             delete_department(mydepartments)
-        elif choice == LOOK_UP_PRODUCT(myproducts):
+        elif choose == LOOK_UP_PRODUCT(myproducts):
             look_up_product(myproducts)
-        elif choice == ADD_PRODUCT(myproducts):
+        elif choose == ADD_PRODUCT(myproducts):
             add_product(myproducts)
-        elif choice == CHANGE_PRODUCT(myproducts):
+        elif choose == CHANGE_PRODUCT(myproducts):
             change_product(myproducts)
-        elif choice == DELETE_PRODUCT(myproducts):
+        elif choose == DELETE_PRODUCT(myproducts):
             delete_product(myproducts)
-        elif choice == LOOK_UP_TRANSACTION(mytransactions):
+        elif choose == LOOK_UP_TRANSACTION(mytransactions):
             look_up_transaction(mytransactions)
-        elif choice == ADD_TRANSACTION(mytransactions):
+        elif choose == ADD_TRANSACTION(mytransactions):
             add_transaction(mytransactions)
-        elif choice == CHANGE_TRANSACTION(mytransactions):
+        elif choose == CHANGE_TRANSACTION(mytransactions):
             change_transaction(mytransactions)
-        elif choice == DELETE_TRANSACTION(mytransactions):
+        elif choose == DELETE_TRANSACTION(mytransactions):
             delete_transaction(mytransactions)
         
 
@@ -249,7 +249,7 @@ def add_customer(mycustomers):
     zip_code = input('Zip Code: ')
     
     # Create a Customer object named entry.
-    entry = Customer.customer(name, street, city, zip_code)
+    entry = Customer.Customer(name, street, city, zip_code)
 
     # If the name does not exist in the dictionary,
     # add it as a key with the entry object as the
@@ -268,7 +268,7 @@ def add_department(mydepartments):
     department_id = input('Department ID: ')
     
     # Create a department object named entry.
-    entrytwo = Department.department(department_name, department_number, description, department_id)
+    entrytwo = Department.Department(department_name, department_number, description, department_id)
 
     # If the name does not exist in the dictionary,
     # add it as a key with the entry object as the
@@ -288,7 +288,7 @@ def add_product(myproducts):
     product_country = input('Product Country Origin: ')
     
     # Create a product object named entry.
-    entrythree = Product.product(product_name, product_brand, product_id, product_price, product_country)
+    entrythree = Product.Product(product_name, product_brand, product_id, product_price, product_country)
 
     # If the name does not exist in the dictionary,
     # add it as a key with the entry object as the
@@ -308,7 +308,7 @@ def add_transaction(mytransactions):
     cc_expdate = input('Credit Card Expiration Date: ')
     
     # Create a transaction object named entry.
-    entryfour = Transaction.transaction(transaction_name, total_price, payment_info, cc_number, cc_expdate)
+    entryfour = Transaction.Transaction(transaction_name, total_price, payment_info, cc_number, cc_expdate)
 
     # If the name does not exist in the dictionary,
     # add it as a key with the entry object as the
@@ -336,7 +336,7 @@ def change_customer(mycustomers):
         zip_code = input('Enter the new zip code: ')
 
         # Create a contact object named entry.
-        entry = Customer.customer(name, street, city, zip_code)
+        entry = Customer.Customer(name, street, city, zip_code)
 
         # Update the entry.
         mycustomers[name] = entry
@@ -359,7 +359,7 @@ def change_department(mydepartments):
         department_id = input('Enter the new department ID: ')
 
         # Create a contact object named entrytwo.
-        entrytwo = Department.department(department_name, department_number, description, department_id)
+        entrytwo = Department.Department(department_name, department_number, description, department_id)
 
         # Update the entry.
         mydepartments[department_name] = entrytwo
@@ -385,7 +385,7 @@ def change_product(myproducts):
         product_country = input('Enter the new product country: ')
 
         # Create a product object named entrythree.
-        entrythree = Product.product(product_name, product_brand, product_id, product_price, product_country)
+        entrythree = Product.Product(product_name, product_brand, product_id, product_price, product_country)
 
         # Update the entry.
         myproducts[product_name] = entrythree
@@ -411,7 +411,7 @@ def change_transaction(mytransactions):
         cc_expdate = input('Enter the new credit card expiration date: ')
 
         # Create a transaction object named entryfour.
-        entryfour = Transaction.transaction(transaction_name, total_price, payment_info, cc_number, cc_expdate)
+        entryfour = Transaction.Transaction(transaction_name, total_price, payment_info, cc_number, cc_expdate)
 
         # Update the entry.
         mytransactions[transaction_name] = entryfour

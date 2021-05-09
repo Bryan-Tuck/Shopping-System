@@ -10,10 +10,22 @@ import Product
 import Transaction
 import pickle
 
-LOOK_UP = 1
-ADD = 2
-CHANGE = 3
-DELETE = 4
+LOOK_UP_CUSTOMER = 1
+ADD_CUSTOMER = 2
+CHANGE_CUSTOMER = 3
+DELETE_CUSTOMER = 4
+LOOK_UP_DEPARTMENT = 5
+ADD_DEPARTMENT = 6
+CHANGE_DEPARTMENT = 7
+DELETE_DEPARTMENT = 8
+LOOK_UP_PRODUCT = 9
+ADD_PRODUCT = 10
+CHANGE_PRODUCT = 11
+DELETE_PRODUCT = 12
+LOOK_UP_TRANSACTION = 13
+ADD_TRANSACTION = 14
+CHANGE_TRANSACTION = 15
+DELETE_TRANSACTION = 16 
 QUIT = 17
 
 FILECUSTOMER = "Customers.dat"
@@ -42,16 +54,41 @@ def main():
         choice = get_menu_choice()
 
         # Process the choice.
-        if choice == LOOK_UP:
-            look_up(mycustomers)
-        elif choice == ADD:
-            add(mycustomers)
-        elif choice == CHANGE:
-            change(mycustomers)
-        elif choice == DELETE:
-            delete(mycustomers)
+        if choice == LOOK_UP_CUSTOMER:
+            look_up_customer(mycustomers)
+        elif choice == ADD_CUSTOMER:
+            add_customer(mycustomers)
+        elif choice == CHANGE_CUSTOMER:
+            change_customer(mycustomers)
+        elif choice == DELETE_CUSTOMER:
+            delete_customer(mycustomers)
+        elif choice == LOOK_UP_DEPARTMENT(mydepartments):
+            look_up_department(mydepartments)
+        elif choice == ADD_DEPARTMENT(mydepartments):
+            add_department(mydepartments)
+        elif choice == CHANGE_DEPARTMENT(mydepartments):
+            change_department(mydepartments)
+        elif choice == DELETE_DEPARTMENT(mydepartments):
+            delete_department(mydepartments)
+        elif choice == LOOK_UP_PRODUCT(myproducts):
+            look_up_product(myproducts)
+        elif choice == ADD_PRODUCT(myproducts):
+            add_product(myproducts)
+        elif choice == CHANGE_PRODUCT(myproducts):
+            change_product(myproducts)
+        elif choice == DELETE_PRODUCT(myproducts):
+            delete_product(myproducts)
+        elif choice == LOOK_UP_TRANSACTION(mytransactions):
+            look_up_transaction(mytransactions)
+        elif choice == ADD_TRANSACTION(mytransactions):
+            add_transaction(mytransactions)
+        elif choice == CHANGE_TRANSACTION(mytransactions):
+            change_transaction(mytransactions)
+        elif choice == DELETE_TRANSACTION(mytransactions):
+            delete_transaction(mytransactions)
+        
 
-    # Save the mycontacts dictionary to a file.
+    # Save the data dictionary to a file.
     save_customers(mycustomers)
     save_departments(mydepartments)
     save_products(myproducts)
@@ -81,7 +118,7 @@ def load_departments():
         
     try:
         # Open the departments.dat file.
-        input_file = open(FILEDEPARTMENT, 'dp')
+        input_file = open(FILEDEPARTMENT, 'rb')
             
         # Unpickle the dictionary.
         department_dct = pickle.load(input_file)
@@ -101,7 +138,7 @@ def load_products():
         
     try:
         # Open the products.dat file.
-        input_file = open(FILEPRODUCT, 'qr')
+        input_file = open(FILEPRODUCT, 'rb')
             
         # Unpickle the dictionary.
         product_dct = pickle.load(input_file)
@@ -121,7 +158,7 @@ def load_transactions():
         
     try:
         # Open the transactions.dat file.
-        input_file = open(FILETRANSACTION, 'ti')
+        input_file = open(FILETRANSACTION, 'rb')
             
         # Unpickle the dictionary.
         transaction_dct = pickle.load(input_file)
@@ -166,7 +203,7 @@ def get_menu_choice():
     choice = int(input('Enter your choice: '))
     
     # Validate the choice.
-    while choice < LOOK_UP or choice > QUIT:
+    while choice < LOOK_UP_CUSTOMER or choice > QUIT:
         choice = int(input('Enter a valid choice: '))
 
     # return the user's choice.
@@ -174,16 +211,37 @@ def get_menu_choice():
 
    # The look_up function looks up an item in the
    # specified dictionary.
-def look_up(mycustomers):
+def look_up_customer(mycustomers):
     # Get a name to look up.
     name = input('Enter a name: ')
 
     # Look it up in the dictionary.
     print(mycustomers.get(name, 'That name is not found.'))
+    
+def look_up_department(mydepartments):
+    # Get a name to look up.
+    department_name = input('Enter a name: ')
+
+    # Look it up in the dictionary.
+    print(mydepartments.get(department_name, 'That name is not found.'))
+    
+def look_up_product(myproducts):
+    # Get a name to look up.
+    product_name = input('Enter a name: ')
+
+    # Look it up in the dictionary.
+    print(myproducts.get(product_name, 'That name is not found.'))
+    
+def look_up_transaction(mytransactions):
+    # Get a name to look up.
+    transaction_name = input('Enter a name: ')
+
+    # Look it up in the dictionary.
+    print(mytransactions.get(transaction_name, 'That name is not found.'))
 
 # The add function adds a new entry into the
 # specified dictionary.
-def add(mycustomers):
+def add_customer(mycustomers):
     # Get the customers info.
     name = input('Name: ')
     street = input('Street: ')
@@ -202,18 +260,77 @@ def add(mycustomers):
     else:
         print('That name already exists.')
         
+def add_department(mydepartments):
+    # Get the departments info.
+    department_name = input('Department Name: ')
+    department_number = input('Department Number: ')
+    description = input('Description: ')
+    department_id = input('Department ID: ')
+    
+    # Create a department object named entry.
+    entrytwo = Department.department(department_name, department_number, description, department_id)
+
+    # If the name does not exist in the dictionary,
+    # add it as a key with the entry object as the
+    # associated value.
+    if department_name not in mydepartments:
+        mydepartments[department_name] = entrytwo
+        print('The entry has been added.')
+    else:
+        print('That name already exists.')
+        
+def add_product(myproducts):
+    # Get the products info.
+    product_name = input('Product Name: ')
+    product_brand = input('Product Number: ')
+    product_id = input('Product ID: ')
+    product_price = input('Product Price: ')
+    product_country = input('Product Country Origin: ')
+    
+    # Create a product object named entry.
+    entrythree = Product.product(product_name, product_brand, product_id, product_price, product_country)
+
+    # If the name does not exist in the dictionary,
+    # add it as a key with the entry object as the
+    # associated value.
+    if product_name not in myproducts:
+        myproducts[product_name] = entrythree
+        print('The entry has been added.')
+    else:
+        print('That name already exists.')
+        
+def add_transaction(mytransactions):
+    # Get the transaction info.
+    transaction_name = input('Transaction Name: ')
+    total_price = input('Total Price: ')
+    payment_info = input('Payment Information: ')
+    cc_number = input('Credit Card Number: ')
+    cc_expdate = input('Credit Card Expiration Date: ')
+    
+    # Create a transaction object named entry.
+    entryfour = Transaction.transaction(transaction_name, total_price, payment_info, cc_number, cc_expdate)
+
+    # If the name does not exist in the dictionary,
+    # add it as a key with the entry object as the
+    # associated value.
+    if transaction_name not in mytransactions:
+        mytransactions[transaction_name] = entryfour
+        print('The entry has been added.')
+    else:
+        print('That name already exists.')
+        
 # The change function changes an existing
 # entry in the specified dictionary.
-def change(mycustomers):
+def change_customer(mycustomers):
     # Get a name to look up.
     name = input('Enter a name: ')
 
     if name in mycustomers:
         # Get a new street.
-        street = input('Enter the new phone number: ')
+        street = input('Enter the new street: ')
 
         # Get a new city.
-        city = input('Enter the new email address: ')
+        city = input('Enter the new city: ')
             
         #Get a new zip code
         zip_code = input('Enter the new zip code: ')
@@ -226,10 +343,85 @@ def change(mycustomers):
         print('Information updated.')
     else:
         print('That name is not found.')
+        
+def change_department(mydepartments):
+    # Get a name to look up.
+    department_name = input('Enter a department name: ')
+
+    if department_name in mydepartments:
+        # Get a new department number.
+        department_number = input('Enter the new department name: ')
+
+        # Get a new description.
+        description = input('Enter the new description: ')
+            
+        #Get a new department ID
+        department_id = input('Enter the new department ID: ')
+
+        # Create a contact object named entrytwo.
+        entrytwo = Department.department(department_name, department_number, description, department_id)
+
+        # Update the entry.
+        mydepartments[department_name] = entrytwo
+        print('Information updated.')
+    else:
+        print('That name is not found.')
+        
+def change_product(myproducts):
+    # Get a name to look up.
+    product_name = input('Enter a product name: ')
+
+    if product_name in myproducts:
+        # Get a new product brand.
+        product_brand = input('Enter the new product brand name: ')
+
+        # Get a new product id.
+        product_id = input('Enter the new product ID: ')
+            
+        #Get a new product price
+        product_price = input('Enter the new product price: ')
+        
+        #get a new product country
+        product_country = input('Enter the new product country: ')
+
+        # Create a product object named entrythree.
+        entrythree = Product.product(product_name, product_brand, product_id, product_price, product_country)
+
+        # Update the entry.
+        myproducts[product_name] = entrythree
+        print('Information updated.')
+    else:
+        print('That name is not found.')
+        
+def change_transaction(mytransactions):
+    # Get a name to look up.
+    transaction_name = input('Enter a transaction name: ')
+
+    if transaction_name in mytransactions:
+        # Get a new total price.
+        total_price = input('Enter the new total price: ')
+
+        # Get a new payment info.
+        payment_info = input('Enter the new payment information: ')
+            
+        #Get a new credit card number
+        cc_number = input('Enter the new credit card number: ')
+        
+        #get a new credit card exipiration date
+        cc_expdate = input('Enter the new credit card expiration date: ')
+
+        # Create a transaction object named entryfour.
+        entryfour = Transaction.transaction(transaction_name, total_price, payment_info, cc_number, cc_expdate)
+
+        # Update the entry.
+        mytransactions[transaction_name] = entryfour
+        print('Information updated.')
+    else:
+        print('That name is not found.')        
 
 # The delete functions deletes an entry from the
 # specified dictionary.
-def delete(mycustomers):
+def delete_customer(mycustomers):
     # Get a name to look up.
     name = input('Enter a name: ')
 
@@ -242,7 +434,7 @@ def delete(mycustomers):
         
 def delete_department(mydepartments):
     # Get a department to look up.
-    department_name = input('Enter a name: ')
+    department_name = input('Enter a department name: ')
 
     # If the name is found, delete the entry.
     if department_name in mydepartments:
@@ -250,7 +442,29 @@ def delete_department(mydepartments):
         print('Entry deleted.')
     else:
         print('That name is not found.')
+        
+def delete_product(myproducts):
+    # Get a product to look up.
+    product_name = input('Enter a product name : ')
 
+    # If the name is found, delete the entry.
+    if product_name in myproducts:
+        del myproducts[product_name]
+        print('Entry deleted.')
+    else:
+        print('That name is not found.')
+
+def delete_transaction(mytransactions):
+    # Get a transaction to look up.
+    transaction_name = input('Enter a transaction name: ')
+
+    # If the name is found, delete the entry.
+    if transaction_name in mytransactions:
+        del mytransactions[transaction_name]
+        print('Entry deleted.')
+    else:
+        print('That name is not found.')
+        
 # The save functions pickles the specified
 # object and saves it to the contacts file.
 def save_customers(mycustomers):

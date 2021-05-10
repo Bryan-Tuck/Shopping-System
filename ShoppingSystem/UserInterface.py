@@ -62,29 +62,29 @@ def main():
             change_customer(mycustomers)
         elif choose == DELETE_CUSTOMER:
             delete_customer(mycustomers)
-        elif choose == LOOK_UP_DEPARTMENT(mydepartments):
+        elif choose == LOOK_UP_DEPARTMENT:
             look_up_department(mydepartments)
-        elif choose == ADD_DEPARTMENT(mydepartments):
+        elif choose == ADD_DEPARTMENT:
             add_department(mydepartments)
-        elif choose == CHANGE_DEPARTMENT(mydepartments):
+        elif choose == CHANGE_DEPARTMENT:
             change_department(mydepartments)
-        elif choose == DELETE_DEPARTMENT(mydepartments):
+        elif choose == DELETE_DEPARTMENT:
             delete_department(mydepartments)
-        elif choose == LOOK_UP_PRODUCT(myproducts):
+        elif choose == LOOK_UP_PRODUCT:
             look_up_product(myproducts)
-        elif choose == ADD_PRODUCT(myproducts):
+        elif choose == ADD_PRODUCT:
             add_product(myproducts)
-        elif choose == CHANGE_PRODUCT(myproducts):
+        elif choose == CHANGE_PRODUCT:
             change_product(myproducts)
-        elif choose == DELETE_PRODUCT(myproducts):
+        elif choose == DELETE_PRODUCT:
             delete_product(myproducts)
-        elif choose == LOOK_UP_TRANSACTION(mytransactions):
+        elif choose == LOOK_UP_TRANSACTION:
             look_up_transaction(mytransactions)
-        elif choose == ADD_TRANSACTION(mytransactions):
+        elif choose == ADD_TRANSACTION:
             add_transaction(mytransactions)
-        elif choose == CHANGE_TRANSACTION(mytransactions):
+        elif choose == CHANGE_TRANSACTION:
             change_transaction(mytransactions)
-        elif choose == DELETE_TRANSACTION(mytransactions):
+        elif choose == DELETE_TRANSACTION:
             delete_transaction(mytransactions)
         
 
@@ -200,14 +200,14 @@ def get_menu_choice():
     print()
 
     # Get the user's choice.
-    choice = int(input('Enter your choice: '))
+    choose = int(input('Enter your choice: '))
     
     # Validate the choice.
-    while choice < LOOK_UP_CUSTOMER or choice > QUIT:
-        choice = int(input('Enter a valid choice: '))
+    while choose < LOOK_UP_CUSTOMER or choose > QUIT:
+        choose = int(input('Enter a valid choice: '))
 
     # return the user's choice.
-    return choice
+    return choose
 
    # The look_up function looks up an item in the
    # specified dictionary.
@@ -268,7 +268,7 @@ def add_department(mydepartments):
     department_id = input('Department ID: ')
     
     # Create a department object named entry.
-    entrytwo = Department.Department(department_name, department_number, description, department_id)
+    entrytwo = Department.department(department_name, department_number, description, department_id)
 
     # If the name does not exist in the dictionary,
     # add it as a key with the entry object as the
@@ -288,7 +288,7 @@ def add_product(myproducts):
     product_country = input('Product Country Origin: ')
     
     # Create a product object named entry.
-    entrythree = Product.Product(product_name, product_brand, product_id, product_price, product_country)
+    entrythree = Product.product(product_name, product_brand, product_id, product_price, product_country)
 
     # If the name does not exist in the dictionary,
     # add it as a key with the entry object as the
@@ -359,7 +359,7 @@ def change_department(mydepartments):
         department_id = input('Enter the new department ID: ')
 
         # Create a contact object named entrytwo.
-        entrytwo = Department.Department(department_name, department_number, description, department_id)
+        entrytwo = Department.department(department_name, department_number, description, department_id)
 
         # Update the entry.
         mydepartments[department_name] = entrytwo

@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = empty-project-type
-recent_files = ['Department.py', 'Tests\\DepartmentTest.py', 'Product.py', 'Tests\\ProductTest.py', 'Transaction.py', 'Tests\\TransactionsTest.py', 'Customer.py', 'Tests\\CustomerTest.py', 'UserInterface.py', 'Tests\\UserInterfaceTest.py']
+recent_files = ['Customer.py', 'Department.py', 'Product.py', 'Transaction.py', 'UserInterface.py']
 
 [main]
 version = 0.2.0

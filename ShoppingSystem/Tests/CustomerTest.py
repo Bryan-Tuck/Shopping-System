@@ -8,6 +8,7 @@ Created on Fri May  7 20:55:23 2021
 import Customer 
 
 
+
 def main():
     
     
@@ -25,7 +26,6 @@ def main():
     print("City name: ", custo.get_city())
     print("Zip Code: ", custo.get_zip_code())
     
-
     
     
 main()

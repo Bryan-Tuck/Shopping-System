@@ -23,6 +23,9 @@ class department:
             
     def set_description(self, description):
         self.__description = description
+    
+    def set_department_id(self, department_id):
+        self.__department_id = department_id
         
     def get_department_name(self):
         return self.__department_name
